@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .popover {
   width: 200px;
 }
@@ -327,10 +328,9 @@ body, .intro-page .swiper-slide, .intro-page .login-screen-content {
 }
 
 .intro-page .description{
-    position: absolute;
-    right: 15%;
-    margin-top: 15%;
-    font-size: 10pt;
+  float: right;
+  margin-top: 0%;
+  font-size: 10pt;
 }
 
 
@@ -372,6 +372,7 @@ body, .intro-page .swiper-slide, .intro-page .login-screen-content {
 .apps .row .col-33:nth-child(2){
   border-left: 0px solid #3381be;
   border-right: 0px solid #3381be;
+  padding-bottom: 19px;
 }
 
 .apps-bg{
@@ -388,7 +389,168 @@ a{
 
 /*Tic Tac Toe Game Styles*/
 .game{
-  display: -webkit-box;
-  -webkit-box-align: center;
+  /*background-color: #00BCD4;*/
+  background-color: #0092d4;
+}
+.game-container{
+    padding: 10px 0;
+    perspective: 100px;
+    -webkit-perspective: 100px;
+    position: relative;
+    z-index: 0;
+}
+.game-borders{
+  left: 0;
+  position: absolute;
+  top: 0;
+  margin: auto;
+  right: 0;
+  z-index: 0;
+}
+.borders{
+  /*stroke: #0097A7;*/
+  stroke: #006ba7;
+  stroke-width: 6px;
+  stroke-dasharray: 102;
+}
+.game-table{
+  border-spacing: 6px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 3;
+}
+.game-table td{
+    height: 48px;
+    padding: 8px;
+    position: relative;
+    vertical-align: top;
+    width: 48px;
+}
+.game-table svg{
+    height: 48px;
+    position: absolute;
+    width: 48px;
+}
+.game-table path{
+    fill: none;
+    stroke-width: 16px;
+}
+.game-table .cell-x, .game-table .cell-o{
+  display: none;
+}
+.cell-x path{
+  stroke: rgb(84, 84, 84);
+  stroke-dasharray: 135.764;
+}
+
+.cell-o path{
+  stroke: #f2ebd3;
+  stroke-dasharray: 301.635;
+}
+.reset{
+  padding: 0 0;
+}
+.reset .button, .players .button, .players .chip, .players .row{
+  width: 100%;
+}
+
+/*winning strokes*/
+.diagonal-win, .v-win, .h-win{
+  width: 200px !important;
+  height: 200px !important;
+}
+.diagonal-win path{
+  stroke: rgb(84, 84, 84);
+  stroke-width: 4px;
+  stroke-dashoffset: 135.764;
+  stroke-dasharray: 135.764;
+}
+.l-win, .r-win, .diagonal-win, .v-win, .h-win{
+  display: none;
+}
+.v-win path,.h-win path{
+  stroke: rgb(84, 84, 84);
+  stroke-width: 8px;
+  stroke-dashoffset: 120;
+  stroke-dasharray: 120;
+  -webkit-transform: rotate(45deg);
+}
+.h-win path{
+  -webkit-transform: rotate(-45deg);
+}
+
+body {
+  color: #222;
+}
+.players{
+  display: block;
+}
+.players .chip{
+  background-color: transparent !important;
+}
+.players .chip-label{
+  left: 65%;
+  font-weight: bolder;
+  font-size: 20pt;
+}
+.game-level, .score-card{
+  margin-bottom: 20px;
+}
+.x-plays, .o-plays{
+  height: 45px !important;
+}
+.x-plays .chip, .o-plays .chip{
+  margin-top: 5px;
+}
+.playing{
+  border-bottom: 2px solid blue;
 }
 /**/
+/*animations*/
+.animated {
+  -webkit-animation-duration: 0.5s;
+  -webkit-animation-fill-mode: both;
+}
+@-webkit-keyframes awesome {
+  from {
+    opacity: 0;
+    -webkit-animation-timing-function:  cubic-bezier(0.4,0,0.2,1);
+    stroke-dashoffset: 120;
+  }
+  to {
+    opacity: 1;
+    stroke-dashoffset: 0;
+  }
+}
+.awesome {
+  -webkit-animation-name: awesome;
+}
+@-webkit-keyframes awesome-x {
+  from {
+    opacity: 0;
+    -webkit-animation-timing-function:  cubic-bezier(0.4,0,0.2,1);
+    stroke-dashoffset: 135.764;
+  }
+  to {
+    opacity: 1;
+    stroke-dashoffset: 0;
+  }
+}
+.awesome-x {
+  -webkit-animation-name: awesome-x;
+}
+
+@-webkit-keyframes awesome-o {
+  from {
+    opacity: 0;
+    -webkit-animation-timing-function:  cubic-bezier(0.4,0,0.2,1);
+    stroke-dashoffset: 301.635;
+  }
+  to {
+    opacity: 1;
+    stroke-dashoffset: 0;
+  }
+}
+.awesome-o {
+  -webkit-animation-name: awesome-o;
+}
