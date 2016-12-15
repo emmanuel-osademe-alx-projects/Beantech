@@ -197,7 +197,7 @@ if (localStorage.getItem('Welcome') == 2) {
         /*--/[End] Function incharge of making moves--*/
 
 
-        /*--/[Begin] Function incharge of assigning wins/draw--*/ 
+        /*--/[Begin] Function incharge of crossing off winning cells--*/ 
             function winingStrokes(cells, winingPlayer){
                     //cross off cells 1,5,9 || 3,5,7 for diagonal win
                     if(cells == "H1,H5,H9" || cells == "C1,C5,C9" || cells == "H3,H5,H7" || cells == "C3,C5,C7"){
@@ -236,7 +236,7 @@ if (localStorage.getItem('Welcome') == 2) {
                         }          
                     }
 
-                    //cross off cells 1,2,3 || 4,5,6 || 7,8,9 for vertical win
+                    //cross off cells 1,2,3 || 4,5,6 || 7,8,9 for horizontal win
                     if((cells == "H1,H2,H3" || cells == "C1,C2,C3" || cells == "H4,H5,H6" || cells == "C4,C5,C6" || cells == "H7,H8,H9" || cells == "C7,C8,C9")){
                         //use stroke color as black if winningPlayer is playing with X
                         $$('.h-win, .h-win path').css({display: 'block', visibility: 'visible',top: '45%'});
@@ -253,7 +253,10 @@ if (localStorage.getItem('Welcome') == 2) {
                         }          
                     }
             }
-
+        /*--/[End] Function incharge of crossing off winning cells--*/         
+        
+        
+        /*--/[Begin] Function incharge of assigning wins/draw--*/ 
             function umpire(player, tile, position){
                 if(winner == ''){
                     if (position == 'first') {
